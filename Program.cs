@@ -104,19 +104,23 @@ namespace ISM6225_Spring_2024_Assignment_2
                 // Write your code here and you can modify the return value according to the requirements
                for(int i = 0; i < nums.Length; i++)
                 {
+                    // If 'arr' already contains the current element, skip it
                     if (arr.Contains(nums[i]))
                     {
                         continue;
                     }
+                    // If the current element is not in 'arr', add it to 'arr' and update count
                     else
                     {
                         arr[count] = nums[i];
                         count++;
                     }
                 }
+               // Increment count by 1 to account for the last element
                count++;
+               // Copy the unique elements back to the original 'nums' arra
                Array.Copy(arr, nums, arr.Length);
-                return count;
+               return count;
             }
             catch (Exception)
             {
