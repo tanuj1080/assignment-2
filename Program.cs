@@ -304,13 +304,17 @@ namespace ISM6225_Spring_2024_Assignment_2
                 int count = 0;
                 for(int i =  0; i < nums.Length-1; i++)
                 {
+                    // Start counting consecutive ones from current index
                     int j = i;
                     while (j < nums.Length && nums[j] == 1)
                     {
-                        count++;
+                        count++; // Increment count for each consecutive one
                         j++;
                     }
+                    // Update maxCount if current count is greater
                     maxCount = Math.Max(maxCount, count);
+
+                    // Reset count for the next iteration
                     count = 0;
                 }
                 return maxCount;
@@ -399,17 +403,25 @@ namespace ISM6225_Spring_2024_Assignment_2
             try
             {
                 // Write your code here and you can modify the return value according to the requirements
+
+                // Sort the array to ensure elements are in ascending order
                 Array.Sort(nums);
+
+                // If there are less than 3 elements in the array, there can't be a triplet, so return 0
                 if (nums.Length < 3)
                 {
                     return 0;
                 }
+
+                // Initialize variables to keep track of maximum difference and current differences
                 int maxDiff = 0;
                 int diff = 0;
                 for(int i =0; i < nums.Length - 1; i++)
                 {
-                    diff = 0;
+                    // Calculate difference between current and next element
                     diff = nums[i+1] - nums[i];
+
+                    // Update maxDiff if current difference is greater
                     maxDiff = Math.Max(maxDiff, diff);
                 }
 
